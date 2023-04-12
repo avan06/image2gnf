@@ -11,13 +11,16 @@ namespace image2gnf
 
         public static bool CanImportCore(Stream stream, string filename = null)
         {
-            using (EndianBinaryReader reader = new EndianBinaryReader(stream, Encoding.Default, true, Endianness.LittleEndian))
-            {
-                int magic = reader.ReadInt32();
-                bool isValid = magic == DDSHeader.MAGIC;
-                reader.BaseStream.Position = 0;
-                return isValid;
-            }
+            using EndianBinaryReader reader = new EndianBinaryReader(stream, Encoding.Default, true, Endianness.LittleEndian);
+            int magic = reader.ReadInt32();
+            bool isValid = magic == DDSHeader.MAGIC;
+            reader.BaseStream.Position = 0;
+            return isValid;
+        }
+
+        public static void ExportCore(DDSStream obj, Stream stream, string filename = null)
+        {
+            obj.Save(stream);
         }
     }
 }
