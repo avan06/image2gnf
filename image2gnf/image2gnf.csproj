@@ -16,7 +16,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\GFD-Studio\GFDLibrary\GFDLibrary.csproj" />
+    <Reference Include="CSharpImageLibrary">
+      <HintPath>packages\GFD-Studio\lib\CSharpImageLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="GFDLibrary">
+      <HintPath>packages\GFD-Studio\lib\GFDLibrary.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>
